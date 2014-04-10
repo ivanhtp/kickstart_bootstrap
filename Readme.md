@@ -25,7 +25,6 @@ Full working blank project for Boostrap, Compass and Grunt lovers!
   * Bower `npm install -g bower`
   * Compass `[sudo] gem install compass`
   * Boostrap Sass (compass version)  `gem install bootstrap-sass`
-  * Boostrap Sass (bower version)  `bower install twbs/bootstrap-sass`
 
   Well done, now you have all the requirements to get this project working!
 
