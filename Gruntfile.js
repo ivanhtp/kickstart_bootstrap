@@ -5,6 +5,7 @@
  * 'compass'       |  Add Bootstrap library to compass take care of it
  * 'htmlmin'       |  Compresses all Html files
  * 'copy'          |  Copy it to 'build' folder
+ * 'connect'       |  Optional, creates a local webserver right after the build with the 'development' folder as root
  * 'ftp-deploy'    |  Optional, run it separately to build in a ftp server (needs a .ftppass file)
  *
  * TODO - Add Angular.js
@@ -17,8 +18,8 @@ module.exports = function (grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
-        // Build folder clean
-        clean: ['build', 'development/img', 'development/common/css'],
+        // Clean the 'build' folder
+        clean: ['build', 'development/img', 'development/css'],
 
         // Javacript Compression
         uglify: {
@@ -32,8 +33,6 @@ module.exports = function (grunt) {
                         src: [
                             'development/lib/bootstrap/javascripts/bootstrap.js',
                             'development/lib/bootstrap/javascripts/affix.js'
-                            //'bower_components/bootstrap-sass/vendor/javascripts/alert.js',
-                            //'bower_components/bootstrap-sass/vendor/javascripts/button.js',
                             // ...
                         ],
                         dest: 'development/lib/bootstrap/bootstrap.min.js'
@@ -44,9 +43,7 @@ module.exports = function (grunt) {
                 options: {
                     mangle: false
                 },
-                // Our Javascript File
                 files: [
-                    // Admin
                     {
                         src: 'development/js/app.js',
                         dest: 'build/<%= pkg.name %>/<%= pkg.version %>/js/app.js'
@@ -55,7 +52,7 @@ module.exports = function (grunt) {
             }
         },
 
-        // Pré-processamento e compressão CSS
+        // Sass Compilation + CSS Compression
         compass: {
             dev: {
                 options: {
@@ -64,8 +61,8 @@ module.exports = function (grunt) {
                     imagesDir: 'img',
                     cssDir: 'development/css',
                     javascriptsDir: 'development/lib',
-                    httpGeneratedImagesPath: '/img',
-                    noLineComments: true
+                    httpGeneratedImagesPath: 'development/img',
+                    noLineComments: false
                 }
             },
             dist: {
@@ -93,7 +90,7 @@ module.exports = function (grunt) {
                     // Admin
                     {
                         src: 'development/*.html',
-                        dest: 'build/<%= pkg.name %>/<%= pkg.version %>/*.html'
+                        dest: 'build/<%= pkg.name %>/<%= pkg.version %>'
                     }
                 ]
             }
@@ -132,6 +129,17 @@ module.exports = function (grunt) {
             }
         },
 
+        connect: {
+            server: {
+                options: {
+                    base: 'development',
+                    hostname: 'localhost',
+                    port: 8888,
+                    keepalive: true
+                }
+            }
+        },
+
 
         // Deploy via FTP
         'ftp-deploy': {
@@ -145,7 +153,6 @@ module.exports = function (grunt) {
                 dest: '<%= pkg.name %>'
             }
         }
-
     });
 
     grunt.loadNpmTasks('grunt-contrib-clean');
@@ -153,9 +160,13 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-compass');
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
+    grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-ftp-deploy');
 
-    // Não modificar a ordem de execução a não ser que você saiba o que está fazendo...
+    // Call tasks in order, don't move    unless you know what you are doing
     grunt.registerTask('default', ['clean', 'uglify', 'compass', 'htmlmin', 'copy']);
+    grunt.registerTask('dev', ['uglify:dev', 'compass:dev', 'copy:dev', 'connect']);
+    grunt.registerTask('dist', ['clean', 'uglify', 'compass', 'htmlmin', 'copy']);
+
 
 };

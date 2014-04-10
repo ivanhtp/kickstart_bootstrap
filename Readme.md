@@ -18,14 +18,14 @@ Full working blank project for Boostrap, Compass and Grunt lovers!
 ## Quickstart
 
   First of all, you need to install the applications below:
-  * Git (dah!) (download and install at http://git-scm.com/)
-  * Ruby 1.9 or higher (you probably already have it, but you can download and install at https://www.ruby-lang.org/en/)
-  * [Node.js](download and install at http://nodejs.org)
-  * Grunt (running  npm install -g bower grunt-cli )
-  * Bower (running npm install -g bower
-  * Compass (running [sudo] gem install compass )
-  * Boostrap Sass (compass version)  gem install bootstrap-sass
-  * Boostrap Sass (bower version)  bower install twbs/bootstrap-sass
+  * [Git](http://git-scm.com/) ...dah!
+  * [Ruby](https://www.ruby-lang.org/en/) 1.9 or higher
+  * [Node.js](http://nodejs.org)
+  * Grunt `npm install -g bower grunt-cli`
+  * Bower `npm install -g bower`
+  * Compass `[sudo] gem install compass`
+  * Boostrap Sass (compass version)  `gem install bootstrap-sass`
+  * Boostrap Sass (bower version)  `bower install twbs/bootstrap-sass`
 
   Well done, now you have all the requirements to get this project working!
 
@@ -33,30 +33,23 @@ Full working blank project for Boostrap, Compass and Grunt lovers!
 ## Downloading
 
   Just download and unzip or clone the project inside the folder you want
-  * [Download](https://github.com/ivanhtp/kickstart_foundation5_bower_grunt_compass/archive/master.zip) or clone: `git clone https://github.com/ivanhtp/kickstart_foundation5_bower_grunt_compass.git`
+  * [Download](https://github.com/ivanhtp/kickstart_bootstrap/archive/master.zip) or clone:
+  `git clone https://github.com/ivanhtp/kickstart_bootstrap.git`
 
-  Optional: Install or update all Grunt dependencies running:
-  * `npm install`
+  * Optional: Install or update all Grunt dependencies running:
+  `npm install`
 
-  Or just open your folder and run:
-  * `grunt`
+  *Or just open your folder and run:
+   `grunt dev`  - Use it when developing, takes less time to run and don't compress your files. Good for debug. It also start a local server.
+   `grunt dist`  - Use it when deploying, compress all files, images to sprites and create version tags of your project
 
-  This will get all contents of your "development" folder and send it to your "build" foder with a version tag and all files minified and optimized. Ready for deploy!
-
-## Developing
-
-  You can start a server anytime you want when developing, just run
-    * `node server.js`
-
-  It will create a local server with the 'development' folder as root!
 
 ## Folder Structure
 
   This project is organized following the structure below:
 
-  * __bower_components__ - All the assets and libs used in this project: Foundation, modernizr, jquery, etc...
   * __node_modules__     - All plugins used by grunt and modules from Node: clean, uglify, compass, etc...
-  * __scss__             - The global style of application goes here, basically your foundation overrides.
+  * __scss__             - The global style of application goes here, basically your bootstrap overrides.
   * __img__              - Put your images here, they will be joined into a sprite in development/img.
   * __development__      - Your HTML files and javascripts only. Grunt will bring images and css for you, don't worry.
   * __build__            - Here goes your project ready for run. Deploy? Just copy this folder and be happy. DON'T CODE ANYTHING HERE!!!
