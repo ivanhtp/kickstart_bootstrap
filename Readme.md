@@ -39,7 +39,7 @@ Full working blank project for Boostrap, Compass and Grunt lovers!
   * Optional: Install or update all Grunt dependencies running:
   `npm install`
 
-  *Or just open your folder and run:
+  * Or just open your folder and run:
    `grunt dev`  - Use it when developing, takes less time to run and don't compress your files. Good for debug. It also start a local server.
    `grunt dist`  - Use it when deploying, compress all files, images to sprites and create version tags of your project
 
