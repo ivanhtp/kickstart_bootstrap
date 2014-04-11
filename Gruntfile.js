@@ -32,7 +32,10 @@ module.exports = function (grunt) {
                     {
                         src: [
                             'development/lib/bootstrap/javascripts/bootstrap.js',
-                            'development/lib/bootstrap/javascripts/affix.js'
+                            'development/lib/bootstrap/javascripts/collapse.js',
+                            'development/lib/bootstrap/javascripts/dropdown.js',
+                            'development/lib/bootstrap/javascripts/offcanvas.js',
+                            'development/lib/bootstrap/javascripts/transition.js'
                             // ...
                         ],
                         dest: 'development/lib/bootstrap/bootstrap.min.js'
