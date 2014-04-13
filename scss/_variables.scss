@@ -5,18 +5,11 @@
 
 $icon-font-path: "/css/fonts/";
 
-$brand-primary: #3E454F;
+$brand-primary: #2E3D45;
 
 $navbar-height: 40px;
 $navbar-inverse-bg: $brand-primary;
 $navbar-border-radius: 0px;
-
-
-
-
-
-
-
 
 
 // Override Bootstrap variables here (defaults copied from bootstrap-sass version 3.1.1.0):
@@ -49,7 +42,7 @@ $navbar-border-radius: 0px;
 // ## Settings for some of the most global styles.
 
 //* Background color for `<body>`.
-//$body-bg:               #fff;
+//body-bg:               #FFF;
 //* Global text color on `<body>`.
 //$text-color:            $gray-dark;
 
@@ -117,14 +110,15 @@ $navbar-border-radius: 0px;
 //$line-height-large:         1.33;
 //$line-height-small:         1.5;
 
-//$border-radius-base:        4px;
-//$border-radius-large:       6px;
-//$border-radius-small:       3px;
+$border-radius-base:        0px;
+$border-radius-large:       0px;
+$border-radius-small:       0px;
+$border-radius-button:      3px;  // TODO Doesn' exists a variable for btn-border-radius yet
 
 //* Global color for active items (e.g., navs or dropdowns).
-//$component-active-color:    #fff;
+//$component-active-color:    #FFF;
 //* Global background color for active items (e.g., navs or dropdowns).
-//$component-active-bg:       $brand-primary;
+$component-active-bg:         $brand-primary;
 
 //* Width of the `border` for generating carets that indicator dropdowns.
 //$caret-width-base:          4px;
