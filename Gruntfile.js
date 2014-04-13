@@ -40,6 +40,17 @@ module.exports = function (grunt) {
                         ],
                         dest: 'development/lib/bootstrap/bootstrap.min.js'
                     }
+                ],
+                // AngularJS
+                files: [
+                    {
+                        src: [
+                            'development/lib/angularjs/angular.js',
+                            'development/lib/angularjs/angular-route.js',
+                            // ...
+                        ],
+                        dest: 'development/lib/angularjs/angular.min.js'
+                    }
                 ]
             },
             dist: {

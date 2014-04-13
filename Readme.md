@@ -1,7 +1,7 @@
 # Kickstarter Structure for FrontEnd Projects
 
 
-Full working blank project for Boostrap, Compass and Grunt lovers!
+Full working blank project for Bootstrap, Compass and Grunt lovers!
 
 ## Features
 
