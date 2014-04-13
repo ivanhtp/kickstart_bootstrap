@@ -5,7 +5,8 @@
 
 $icon-font-path: "/css/fonts/";
 
-$brand-primary: #2E3D45;
+$brand-primary: #2B3A42;
+$brand-secondary: #E74C3C;
 
 $navbar-height: 40px;
 $navbar-inverse-bg: $brand-primary;
@@ -42,7 +43,7 @@ $navbar-border-radius: 0px;
 // ## Settings for some of the most global styles.
 
 //* Background color for `<body>`.
-//body-bg:               #FFF;
+$body-bg:               #EFEFEF;
 //* Global text color on `<body>`.
 //$text-color:            $gray-dark;
 
@@ -156,8 +157,8 @@ $component-active-bg:         $brand-primary;
 //$btn-default-border:             #ccc;
 
 //$btn-primary-color:              #fff;
-//$btn-primary-bg:                 $brand-primary;
-//$btn-primary-border:             darken($btn-primary-bg, 5%);
+$btn-primary-bg:                 $brand-secondary;
+$btn-primary-border:             darken($brand-secondary, 5%);
 
 //$btn-success-color:              #fff;
 //$btn-success-bg:                 $brand-success;

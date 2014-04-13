@@ -6,6 +6,19 @@
 
 @import "compass/css3";
 
+/* Buttons */
+.btn {
+  @include border-radius(3px);
+  margin: 5px 0px;
+
+  &.btn-primary{
+    font-weight: bold;
+  }
+}
+
+
+
+
 /*
  * Off Canvas
  * --------------------------------------------------
