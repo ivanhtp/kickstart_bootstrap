@@ -8,20 +8,50 @@
 **/
 
 
+var LifeModule = angular.module('LifeModule', ['ngRoute','ui.bootstrap']);
+
+
 /**
- * Controller CarCtrl
- * Description: Creates a car
- * Methods:
+ * Route Provider
+ * Index com todas as páginas da Aplicação e seus redirecionamentos
  */
-var CarCtrl = function ($scope) {
-
-    /**
-     * Method: Steerleft
-     */
-    $scope.steerLeft = function () {
-
+LifeModule.config(['$routeProvider',
+    function($routeProvider) {
+        $routeProvider.
+            when('/settings', {
+                //  Configurações / Template
+                templateUrl: 'views/settings.html',
+                controller: 'SettingsCtrl'
+            }).
+            when('/diary', {
+                templateUrl: 'views/diary.html',
+                controller: 'DiaryCtrl'
+            }).
+            when('/dashboard/weight', {
+                templateUrl: 'views/weight.html',
+                controller: 'WeightCtrl'
+            }).
+             otherwise({
+                redirectTo: '/'
+         });
     }
+]);
 
-}
+
+/**
+ * Ativa HTML5 Mode,
+ * fazendo com que o Angular não tome conta dos links, alterando a url da página.
+ */
+LifeModule.config(['$locationProvider', function($locationProvider){
+    $locationProvider.html5Mode(false).hashPrefix('!');
+}]);
+
+/**
+ * Inits
+ * Execuções e inicializações após aplicação estar pronta
+ */
+LifeModule.run(function($rootScope, $timeout) {
+
+});
 
 

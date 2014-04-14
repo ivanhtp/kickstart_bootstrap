@@ -8,7 +8,6 @@
  * 'connect'       |  Optional, creates a local webserver right after the build with the 'development' folder as root
  * 'ftp-deploy'    |  Optional, run it separately to build in a ftp server (needs a .ftppass file)
  *
- * TODO - Add Angular.js
  * TODO - Create a minified app.js copy
  * TODO - Use compass bootstrap gem instead using it from bower folder (and kill bower)
 **/
@@ -39,17 +38,37 @@ module.exports = function (grunt) {
                             // ...
                         ],
                         dest: 'development/lib/bootstrap/bootstrap.min.js'
+                    },
+                // AngularJS
+                    {
+                        src: [
+                            'development/lib/angularjs/angular.js',
+                            'development/lib/angularjs/angular-route.js',
+                            'development/lib/angularjs/ui-bootstrap.js'
+                        ],
+                        dest: 'development/lib/angularjs/angular.min.js'
+                    },
+                // App Javascripts
+                    {
+                        src : [
+                            'development/js/app.js',
+                            'development/js/directives.js',
+                            'development/js/controllers/diary.js',
+                            'development/js/services.js'
+                        ],
+                        dest : 'development/js/app.min.js'
                     }
                 ]
             },
             dist: {
                 options: {
-                    mangle: false
+                    mangle: false,
+                    compress: true
                 },
                 files: [
                     {
-                        src: 'development/js/app.js',
-                        dest: 'build/<%= pkg.name %>/<%= pkg.version %>/js/app.js'
+                        src: 'development/js/app.min.js',
+                        dest: 'build/<%= pkg.name %>/<%= pkg.version %>/js/app.min.js'
                     }
                 ]
             }
