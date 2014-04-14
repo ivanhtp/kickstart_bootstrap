@@ -8,7 +8,7 @@
 **/
 
 
-var LifeModule = angular.module('LifeModule', ['ngRoute']);
+var LifeModule = angular.module('LifeModule', ['ngRoute','ui.bootstrap']);
 
 
 /**

@@ -7619,11 +7619,20 @@ button.close {
 }
 
 /*
+ * Reset for UI Bootstrap AngularJS
+ * --------------------------------------------------
+ */
+/* line 24, ../../scss/_styles.scss */
+.nav, .pagination, .carousel, .panel-title a {
+  cursor: pointer;
+}
+
+/*
  * Off Canvas
  * --------------------------------------------------
  */
 @media screen and (max-width: 767px) {
-  /* line 27, ../../scss/_styles.scss */
+  /* line 32, ../../scss/_styles.scss */
   .row-offcanvas {
     position: relative;
     -webkit-transition: all .25s ease-out;
@@ -7631,43 +7640,43 @@ button.close {
     transition: all .25s ease-out;
   }
 
-  /* line 34, ../../scss/_styles.scss */
+  /* line 39, ../../scss/_styles.scss */
   .row-offcanvas-right {
     right: 0;
   }
 
-  /* line 38, ../../scss/_styles.scss */
+  /* line 43, ../../scss/_styles.scss */
   .row-offcanvas-left {
     left: 0;
   }
 
-  /* line 43, ../../scss/_styles.scss */
+  /* line 48, ../../scss/_styles.scss */
   .row-offcanvas-right
   .sidebar-offcanvas {
     right: -50%;
     /* 6 columns */
   }
 
-  /* line 48, ../../scss/_styles.scss */
+  /* line 53, ../../scss/_styles.scss */
   .row-offcanvas-left
   .sidebar-offcanvas {
     left: -50%;
     /* 6 columns */
   }
 
-  /* line 52, ../../scss/_styles.scss */
+  /* line 57, ../../scss/_styles.scss */
   .row-offcanvas-right.active {
     right: 50%;
     /* 6 columns */
   }
 
-  /* line 56, ../../scss/_styles.scss */
+  /* line 61, ../../scss/_styles.scss */
   .row-offcanvas-left.active {
     left: 50%;
     /* 6 columns */
   }
 
-  /* line 60, ../../scss/_styles.scss */
+  /* line 65, ../../scss/_styles.scss */
   .sidebar-offcanvas {
     position: absolute;
     top: 0;

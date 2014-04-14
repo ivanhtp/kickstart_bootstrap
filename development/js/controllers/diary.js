@@ -9,6 +9,6 @@
  */
 LifeModule.controller('DiaryCtrl', function ($scope) {
 
-    alert("este");
+
 
 });

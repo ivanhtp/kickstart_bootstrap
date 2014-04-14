@@ -43,7 +43,8 @@ module.exports = function (grunt) {
                     {
                         src: [
                             'development/lib/angularjs/angular.js',
-                            'development/lib/angularjs/angular-route.js'
+                            'development/lib/angularjs/angular-route.js',
+                            'development/lib/angularjs/ui-bootstrap.js'
                         ],
                         dest: 'development/lib/angularjs/angular.min.js'
                     },
