@@ -16,6 +16,19 @@
   }
 }
 
+/* Navbar */
+.navbar-inverse .navbar-toggle {
+  color: #FFFFFF !important;
+
+  &:hover {
+    background-color: darken($brand-primary, 15%);
+  }
+}
+
+.navbar-form {
+  margin-top: 0px;
+}
+
 
 /*
  * Reset for UI Bootstrap AngularJS
@@ -46,11 +59,13 @@
 
   .row-offcanvas-right
   .sidebar-offcanvas {
+    margin-right: 10px;
     right: -50%; /* 6 columns */
   }
 
   .row-offcanvas-left
   .sidebar-offcanvas {
+    margin-left: 10px;
     left: -50%; /* 6 columns */
   }
 

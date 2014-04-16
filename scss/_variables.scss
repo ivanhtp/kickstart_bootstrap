@@ -5,6 +5,7 @@
 
 $icon-font-path: "/css/fonts/";
 
+
 $brand-primary: #2B3A42;
 $brand-secondary: #E74C3C;
 
@@ -111,10 +112,10 @@ $body-bg:               #EFEFEF;
 //$line-height-large:         1.33;
 //$line-height-small:         1.5;
 
-$border-radius-base:        0px;
-$border-radius-large:       0px;
-$border-radius-small:       0px;
-$border-radius-button:      3px;  // TODO Doesn' exists a variable for btn-border-radius yet
+$border-radius-base:        5px;
+$border-radius-large:       5px;
+$border-radius-small:       3px;
+$border-radius-button:      3px;  // TODO Doesn't exists a variable for btn-border-radius yet
 
 //* Global color for active items (e.g., navs or dropdowns).
 //$component-active-color:    #FFF;
@@ -387,7 +388,7 @@ $btn-primary-border:             darken($brand-secondary, 5%);
 // Inverted navbar toggle
 //$navbar-inverse-toggle-hover-bg:            #333;
 //$navbar-inverse-toggle-icon-bar-bg:         #fff;
-//$navbar-inverse-toggle-border-color:        #333;
+$navbar-inverse-toggle-border-color:          none;
 
 //== Navs
 //
@@ -636,7 +637,7 @@ $btn-primary-border:             darken($brand-secondary, 5%);
 //* `.list-group-item` border color
 //$list-group-border:             #ddd;
 //* List group border radius
-//$list-group-border-radius:      $border-radius-base;
+$list-group-border-radius:      0px;
 
 //* Background color of single list elements on hover
 //$list-group-hover-bg:           #f5f5f5;
@@ -657,7 +658,7 @@ $btn-primary-border:             darken($brand-secondary, 5%);
 
 //$panel-bg:                    #fff;
 //$panel-body-padding:          15px;
-//$panel-border-radius:         $border-radius-base;
+$panel-border-radius:         0px;
 
 //* Border color for elements within panels
 //$panel-inner-border:          #ddd;
