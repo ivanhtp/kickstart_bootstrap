@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bootstrap</title>
+    <title>Life</title>
 
     <!-- Stylesheet (all in one) -->
     <link rel="stylesheet" href="css/app.css" />
@@ -15,33 +15,28 @@
 </head>
 
 <body ng-app="LifeModule">
+
+    <!-- NAVBAR TOP -->
     <nav class="navbar navbar-inverse" role="navigation">
         <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
+            <!-- Small Screen Menu -->
             <div class="navbar-header">
                 <a class="navbar-brand" href="#">Life</a>
                 <button type="button" class="navbar-toggle">
                     <span class="sr-only">Add Event</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+                    <span class="glyphicon glyphicon-plus"></span>
                 </button>
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Categories</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+                    <span class="glyphicon glyphicon-tasks"></span>
                 </button>
 
                 <button type="button" class="navbar-toggle" data-toggle="offcanvas">
                     <span class="sr-only">Settings</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+                    <span class="glyphicon glyphicon-dashboard"></span>
                 </button>
             </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
+            <!-- Big Screen Menu -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#">Help</a></li>
@@ -60,27 +55,52 @@
         </div><!-- /.container-fluid -->
     </nav>
 
+    <!-- CONTENT -->
     <div class="container">
+        <!-- Left Menu -->
         <div class="row row-offcanvas row-offcanvas-left">
             <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
                 <div class="">
-                    <button type="button" class="btn btn-primary">Add Event</button>
+                    <button type="button" class="btn btn-primary"
+                            data-toggle="modal" data-target="#addEvent" data-keyboard="true">
+                        Add Event
+                    </button>
                 </div>
                 <div class="list-group">
-                    <a href="#" class="list-group-item active">Diary</a>
-                    <a href="#" class="list-group-item">Weight</a>
-                    <a href="#" class="list-group-item">Finances</a>
-                    <a href="#" class="list-group-item">Books</a>
-                    <a href="#" class="list-group-item">Movies</a>
+                    <a href="#" class="list-group-item active"><span class="glyphicon glyphicon-th-list"> Diary</a>
+                    <a href="#" class="list-group-item"><span class="glyphicon glyphicon-cutlery"> Weight</a>
+                    <a href="#" class="list-group-item"><span class="glyphicon glyphicon-usd"> Finances</a>
+                    <a href="#" class="list-group-item"><span class="glyphicon glyphicon-book"> Books</a>
+                    <a href="#" class="list-group-item"> <span class="glyphicon glyphicon-music"> Movies</a>
+                    <p class="text-center"><small>There are 11 events recorded since 18/04/2014.</small></p>
                 </div>
+
             </div>
 
+            <!-- Right Content -->
             <div class="col-xs-12 col-sm-9" >
                 <div  ng-view></div>
             </div>
         </div>
-
     </div>
+
+    <!-- ADD EVENT MODAL -->
+    <div id="addEvent" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Add Event</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Which event would you like to add&hellip;</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
 
 <!-- Polyfills -->
 <!--[if lte IE 9]>

@@ -1,39 +1,125 @@
-<div class="btn-group">
-    <button type="button" class="btn btn-default" ng-model="radioModel" btn-radio="'Left'">Left</button>
-    <button type="button" class="btn btn-default" ng-model="radioModel" btn-radio="'Middle'">Middle</button>
-    <button type="button" class="btn btn-default" ng-model="radioModel" btn-radio="'Right'">Right</button>
-</div>
-<input type="text" ng-model="asyncSelected" placeholder="Locations loaded via $http" typeahead="address for address in getLocation($viewValue) | filter:$viewValue" typeahead-loading="loadingLocations" class="form-control">
-<i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
+<!-- DIARY LOG PAGE  -->
 
+<!-- Welcome board!
+<div class="jumbotron">
+    <h1>Welcome to Life!</h1>
+    <p>Hello! Life is a new application to help you to track your life and see many stats about it!</p>
+    <p><a class="btn btn-primary btn-lg" role="button">Learn more</a></p>
+</div>
+-->
+
+<!-- Toolbar  -->
+<div class="btn-toolbar" role="toolbar">
+    <div class="btn-group btn-group-sm">
+        <button type="button" class="btn btn-default"
+                data-toggle="tooltip" data-placement="bottom" data-container="body" title="Share">
+            <span class="glyphicon glyphicon-share"></span>
+        </button>
+        <button type="button" class="btn btn-default" ng-model="checkModel.2" btn-checkbox
+                data-toggle="tooltip" data-placement="bottom" data-container="body" title="Favorite">
+            <span class="glyphicon glyphicon-heart"></span>
+        </button>
+        <button type="button" class="btn btn-default"
+                data-toggle="tooltip" data-placement="bottom" data-container="body" title="Print">
+            <span class="glyphicon glyphicon-print"></span>
+        </button>
+    </div>
+    <div class="btn-group btn-group-sm">
+        <button type="button" class="btn btn-default btn-toolbar" ng-model="data.orderBy" btn-radio="'alphabet'"
+                data-toggle="tooltip" data-placement="bottom" data-container="body" title="Order by Alphabeet"">
+            <span class="glyphicon glyphicon-sort-by-alphabet"></span>
+        </button>
+        <button type="button" class="btn btn-default" ng-model="data.orderBy" btn-radio="'date'"
+                data-toggle="tooltip" data-placement="bottom" data-container="body" title="Order by Date"">
+            <span class="glyphicon glyphicon-sort-by-order"></span>
+        </button>
+        <button type="button" class="btn btn-default" ng-model="data.orderBy" btn-radio="'category'"
+                data-toggle="tooltip" data-placement="bottom" data-container="body" title="Order by Category">
+            <span class="glyphicon glyphicon-sort-by-attributes"></span>
+        </button>
+    </div>
+    <!--
+    <div class="btn-group btn-group-sm navbar-right">
+        <div class="input-group input-group-sm">
+            <input type="text" class="form-control">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search
+"></span></button>
+              </span>
+        </div>--><!-- /input-group -->
+    </div>
+</div>
+
+<!-- DataGrid  -->
 <div class="panel panel-default">
     <div class="panel-body">
         <table class="table table-hover">
-            <thead>
-            <tr>
-                <th>#</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Username</th>
-            </tr>
-            </thead>
             <tbody>
             <tr>
-                <td>1</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
+                <td class="table-check"><input type="checkbox"></td>
+                <td class="table-icon"><span class="glyphicon glyphicon-music"></span></td>
+                <td class="table-desc"><strong>Music | Listened to "Oasis"</strong> via PandoraApp</td>
+                <td class="table-date">Apr 18, 2014 - 20:40</td>
             </tr>
             <tr>
-                <td>2</td>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
+                <td class="table-check"><input type="checkbox"></td>
+                <td class="table-icon" ><span class="glyphicon glyphicon-cutlery"></span></td>
+                <td class="table-desc" ><strong>Weight | Lost 3 Kg</strong> current weight 88Kg</td>
+                <td class="table-date" >Apr 16, 2014 - 08:22</td>
             </tr>
             <tr>
-                <td>3</td>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
+                <td class="table-check"><input type="checkbox"></td>
+                <td class="table-icon" ><span class="glyphicon glyphicon-usd"></span></td>
+                <td class="table-desc" ><strong>Finance | Income $2000</strong> Salary</td>
+                <td class="table-date" >Apr 15, 2014 - 12:01</td>
+            </tr>
+            <tr>
+                <td class="table-check"><input type="checkbox"></td>
+                <td class="table-icon" ><span class="glyphicon glyphicon-film"></span></td>
+                <td class="table-desc" ><strong>Movie | Watched "The Hobbit"</strong> Imax Pompéia</td>
+                <td class="table-date" >Apr 15, 2014 - 12:01</td>
+            </tr>
+            <tr>
+                <td class="table-check"><input type="checkbox"></td>
+                <td class="table-icon" ><span class="glyphicon glyphicon-cutlery"></span></td>
+                <td class="table-desc" ><strong>Weight | Lost 1 Kg</strong> current weight 87Kg</td>
+                <td class="table-date" >Apr 18, 2014 - 20:40</td>
+            </tr>
+            <tr>
+                <td class="table-check"><input type="checkbox"></td>
+                <td class="table-icon" ><span class="glyphicon glyphicon-book"></span></td>
+                <td class="table-desc" ><strong>Book | Read "Fall of Giants"</strong> via Kobo</td>
+                <td class="table-date" >Apr 16, 2014 - 08:22</td>
+            </tr>
+            <tr>
+                <td class="table-check"><input type="checkbox"></td>
+                <td class="table-icon" ><span class="glyphicon glyphicon-usd"></span></td>
+                <td class="table-desc" ><strong>Finance | Bill paid U$ 130</strong> Internet and Cable</td>
+                <td class="table-date" >Apr 15, 2014 - 12:01</td>
+            </tr>
+            <tr>
+                <td class="table-check"><input type="checkbox"></td>
+                <td class="table-icon" ><span class="glyphicon glyphicon-cutlery"></span></td>
+                <td class="table-desc" ><strong>Weight | Gained 1 Kg</strong> current weight 91Kg</td>
+                <td class="table-date" >Apr 15, 2014 - 12:01</td>
+            </tr>
+            <tr>
+                <td class="table-check"><input type="checkbox"></td>
+                <td class="table-icon" ><span class="glyphicon glyphicon-book"></span></td>
+                <td class="table-desc" ><strong>Book | Read "Moby Dick"</strong> via Kindle</td>
+                <td class="table-date" >Apr 18, 2014 - 20:40</td>
+            </tr>
+            <tr>
+                <td class="table-check"><input type="checkbox"></td>
+                <td class="table-icon" ><span class="glyphicon glyphicon-film"></span></td>
+                <td class="table-desc" ><strong>Movie | Watched "The Winter Soldier</strong> at Cinemark UCI</td>
+                <td class="table-date" >Apr 16, 2014 - 08:22</td>
+            </tr>
+            <tr>
+                <td class="table-check"><input type="checkbox"></td>
+                <td class="table-icon" ><span class="glyphicon glyphicon-music"></span></td>
+                <td class="table-desc" ><strong>Music | Listened to Bob Dylan</strong> via Last.fm</td>
+                <td class="table-date" >Apr 15, 2014 - 12:01</td>
             </tr>
             </tbody>
         </table>

@@ -13,13 +13,12 @@ var LifeModule = angular.module('LifeModule', ['ngRoute','ui.bootstrap']);
 
 /**
  * Route Provider
- * Index com todas as páginas da Aplicação e seus redirecionamentos
+ * All routes and redirects
  */
 LifeModule.config(['$routeProvider',
     function($routeProvider) {
         $routeProvider.
             when('/settings', {
-                //  Configurações / Template
                 templateUrl: 'views/settings.html',
                 controller: 'SettingsCtrl'
             }).

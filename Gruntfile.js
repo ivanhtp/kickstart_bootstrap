@@ -33,7 +33,9 @@ module.exports = function (grunt) {
                             'development/lib/bootstrap/javascripts/bootstrap.js',
                             'development/lib/bootstrap/javascripts/collapse.js',
                             'development/lib/bootstrap/javascripts/dropdown.js',
+                            'development/lib/bootstrap/javascripts/modal.js',
                             'development/lib/bootstrap/javascripts/offcanvas.js',
+                            'development/lib/bootstrap/javascripts/tooltip.js',
                             'development/lib/bootstrap/javascripts/transition.js'
                             // ...
                         ],
@@ -155,6 +157,7 @@ module.exports = function (grunt) {
             server: {
                 options: {
                     base: 'development',
+                    directory: '/',
                     hostname: 'localhost',
                     port: 8888,
                     keepalive: true
