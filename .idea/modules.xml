@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/LifeApp.iml" filepath="$PROJECT_DIR$/.idea/LifeApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/kickstart_bootstrap.iml" filepath="$PROJECT_DIR$/.idea/kickstart_bootstrap.iml" />
     </modules>
   </component>
 </project>

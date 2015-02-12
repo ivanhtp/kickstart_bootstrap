@@ -1,15 +1,15 @@
 /**
  * Grunt.js Configuration File
- * 'clean'         |  Clean 'build' folder to prepare it to receive files ready for deploy
+ * 'clean'         |  Clean 'build' version to prepare it to receive files ready for deploy
  * 'uglify'        |  Compresses all javascript files and libraries into single files
  * 'compass'       |  Add Bootstrap library to compass take care of it
  * 'htmlmin'       |  Compresses all Html files
- * 'copy'          |  Copy it to 'build' folder
- * 'connect'       |  Optional, creates a local webserver right after the build with the 'development' folder as root
+ * 'copy'          |  Copy it to 'build' version
+ * 'connect'       |  Optional, creates a local webserver right after the build with the 'src' version as root
  * 'ftp-deploy'    |  Optional, run it separately to build in a ftp server (needs a .ftppass file)
  *
  * TODO - Create a minified app.js copy
- * TODO - Use compass bootstrap gem instead using it from bower folder (and kill bower)
+ * TODO - Use compass bootstrap gem instead using it from bower version (and kill bower)
 **/
 
 module.exports = function (grunt) {
@@ -17,8 +17,8 @@ module.exports = function (grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
-        // Clean the 'build' folder
-        clean: ['build', 'development/img', 'development/css'],
+        // Clean the 'build' version
+        clean: ['build', 'src/img', 'src/css'],
 
         // Javacript Compression
         uglify: {
@@ -30,35 +30,35 @@ module.exports = function (grunt) {
                 files: [
                     {
                         src: [
-                            'development/lib/bootstrap/javascripts/bootstrap.js',
-                            'development/lib/bootstrap/javascripts/collapse.js',
-                            'development/lib/bootstrap/javascripts/dropdown.js',
-                            'development/lib/bootstrap/javascripts/modal.js',
-                            'development/lib/bootstrap/javascripts/offcanvas.js',
-                            'development/lib/bootstrap/javascripts/tooltip.js',
-                            'development/lib/bootstrap/javascripts/transition.js'
+                            'src/js/vendors/lib/bootstrap/javascripts/bootstrap.js',
+                            'src/js/vendors/lib/bootstrap/javascripts/collapse.js',
+                            'src/js/vendors/lib/bootstrap/javascripts/dropdown.js',
+                            'src/js/vendors/lib/bootstrap/javascripts/modal.js',
+                            'src/js/vendors/lib/bootstrap/javascripts/offcanvas.js',
+                            'src/js/vendors/lib/bootstrap/javascripts/tooltip.js',
+                            'src/js/vendors/lib/bootstrap/javascripts/transition.js'
                             // ...
                         ],
-                        dest: 'development/lib/bootstrap/bootstrap.min.js'
+                        dest: 'build/<%= pkg.name %>/<%= pkg.version %>/pending/src/js/vendors/lib/bootstrap/bootstrap.min.js'
                     },
                 // AngularJS
                     {
                         src: [
-                            'development/lib/angularjs/angular.js',
-                            'development/lib/angularjs/angular-route.js',
-                            'development/lib/angularjs/ui-bootstrap.js'
+                            'src/js/vendors/lib/angularjs/angular.js',
+                            'src/js/vendors/lib/angularjs/angular-route.js',
+                            'src/js/vendors/lib/angularjs/ui-bootstrap.js'
                         ],
-                        dest: 'development/lib/angularjs/angular.min.js'
+                        dest: 'build/<%= pkg.name %>/<%= pkg.version %>/pending/src/js/vendors/lib/angularjs/angular.min.js'
                     },
                 // App Javascripts
                     {
                         src : [
-                            'development/js/app.js',
-                            'development/js/directives.js',
-                            'development/js/controllers/diary.js',
-                            'development/js/services.js'
+                            'src/js/app.js',
+                            'src/js/directives.js',
+                            'src/js/controllers/diary.js',
+                            'src/js/services.js'
                         ],
-                        dest : 'development/js/app.min.js'
+                        dest : 'build/<%= pkg.name %>/<%= pkg.version %>/pending/src/js/app.min.js'
                     }
                 ]
             },
@@ -69,7 +69,7 @@ module.exports = function (grunt) {
                 },
                 files: [
                     {
-                        src: 'development/js/app.min.js',
+                        src: 'src/js/app.min.js',
                         dest: 'build/<%= pkg.name %>/<%= pkg.version %>/js/app.min.js'
                     }
                 ]
@@ -81,21 +81,21 @@ module.exports = function (grunt) {
             dev: {
                 options: {
                     require: ['bootstrap-sass'],
-                    sassDir: 'scss',
-                    imagesDir: 'img',
-                    cssDir: 'development/css',
-                    javascriptsDir: 'development/lib',
-                    httpGeneratedImagesPath: 'development/img',
+                    sassDir: 'src/scss',
+                    imagesDir: 'src/img',
+                    cssDir: 'build/<%= pkg.name %>/<%= pkg.version %>/pending/css',
+                    javascriptsDir: 'build/<%= pkg.name %>/<%= pkg.version %>/pending/js/vendors/lib',
+                    httpGeneratedImagesPath: 'build/<%= pkg.name %>/<%= pkg.version %>/img',
                     noLineComments: false
                 }
             },
             dist: {
                 options: {
                     require: ['bootstrap-sass'],
-                    sassDir: 'scss',
-                    imagesDir: 'img',
-                    cssDir: 'build/<%= pkg.name %>/<%= pkg.version %>/css',
-                    javascriptsDir: 'build/<%= pkg.name %>/<%= pkg.version %>/lib',
+                    sassDir: 'src/scss',
+                    imagesDir: 'src/img',
+                    cssDir: 'build/<%= pkg.name %>/<%= pkg.version %>/pending/css',
+                    javascriptsDir: 'build/<%= pkg.name %>/<%= pkg.version %>/pending/js/vendors/lib',
                     httpGeneratedImagesPath: 'build/<%= pkg.name %>/<%= pkg.version %>/img',
                     noLineComments: true,
                     outputStyle: 'compressed'
@@ -111,9 +111,9 @@ module.exports = function (grunt) {
                     collapseWhitespace: true
                 },
                 files: [
-                    // Admin
+                    // pending
                     {
-                        src: 'development/*.html',
+                        src: 'src/*.html',
                         dest: 'build/<%= pkg.name %>/<%= pkg.version %>'
                     }
                 ]
@@ -122,32 +122,28 @@ module.exports = function (grunt) {
 
         // File Copies
         copy: {
-            dev: {
+            default: {
                 files: [
-                    // Sprites
                     {
                         expand: true,
-                        src: ['img/*.png'],
-                        dest: 'development/'
-                    }
-                ]
-            },
-            dist: {
-                files: [
-                    // 3rd Party Files
-                    {
-                        expand: true,
-                        cwd: 'development',
-                        src: ['lib/**/*'],
-                        dest: 'build/<%= pkg.name %>/<%= pkg.version %>'
+                        cwd: 'src/img',
+                        src: ['favicon/*','gif/*'],
+                        dest: 'build/<%= pkg.name %>/<%= pkg.version %>/pending/img'
                     },
-
-                    // Sprites
                     {
                         expand: true,
-                        cwd: 'development',
-                        src: ['img/**/*'],
-                        dest: 'build/<%= pkg.name %>/<%= pkg.version %>'
+                        cwd: 'src/js/vendors',
+                        src: [
+                            'css/*',
+                            'polyfills/*',
+                            'js/jquery.min.js',
+                            'js/jquery.minicolors.min.js',
+                            'js/jquery.urlparser.min.js',
+                            'js/modernizr.min.js',
+                            'js/require.js',
+                            'lib/glyphicons/*'
+                        ],
+                        dest: 'build/<%= pkg.name %>/<%= pkg.version %>/pending/js/vendors'
                     }
                 ]
             }
@@ -156,8 +152,8 @@ module.exports = function (grunt) {
         connect: {
             server: {
                 options: {
-                    base: 'development',
-                    directory: '/',
+                    base: 'build/<%= pkg.name %>/<%= pkg.version %>/pending',
+                    directory: '',
                     hostname: 'localhost',
                     port: 8888,
                     keepalive: true
@@ -190,7 +186,7 @@ module.exports = function (grunt) {
 
     // Call tasks in order, don't move    unless you know what you are doing
     grunt.registerTask('default', ['clean', 'uglify', 'compass', 'htmlmin', 'copy']);
-    grunt.registerTask('dev', ['uglify:dev', 'compass:dev', 'copy:dev', 'connect']);
+    grunt.registerTask('dev', ['uglify:dev', 'compass:dev', 'copy', 'connect']);
     grunt.registerTask('dist', ['clean', 'uglify', 'compass', 'htmlmin', 'copy']);
 
 

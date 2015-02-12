@@ -1,62 +1,104 @@
-# Kickstarter Structure for FrontEnd Projects
+# Static
 
+## Documentação
+Para maiores informações sobre o projeto Static visite a [Página Wiki](https://bitbucket.org/directtalk/static/wiki/Home) do projeto.
 
-Full working blank project for Bootstrap, Compass and Grunt lovers!
+## Static em 1 minuto
+Para execução do projeto em um servidor em localhost, siga os seguintes passos:
 
-## Features
+* Instale o [nodejs](http://nodejs.org), o [ruby](https://www.ruby-lang.org/pt/) e o [git](http://git-scm.com/download)
 
-  * Bootstrap
-  * Node.js
-  * Sass and Compass
-  * Bower for assets organization
-  * Grunt.js for building (and many tasks already configured!)
-  * Great file/folder organization!
-  * One command build and deploy
-  * 100% upgradable
+* Instale os frameworks compass e zurb-foundation utilizando o gerenciador de pacotes [RubyGem](http://en.wikipedia.org/wiki/RubyGems) (já instalado com o Ruby)
+```
+gem update --system
+gem install compass
+gem install bootstrap-sass -v 3.1.1
+```
 
+* Instale o Grunt utilizando o gerenciador de pacotes [npm](http://npmjs.org) (Já instalado com o NodeJs)
+```
+npm install -g grunt-cli
+```
 
-## Quickstart
+* Clone o repositório do projeto (troque o valor do seu username na URL):
+```
+git clone https://bsantanna@bitbucket.org/directtalk/static.git
+```
 
-  First of all, you need to install the applications below:
-  * [Git](http://git-scm.com/) ...dah!
-  * [Ruby](https://www.ruby-lang.org/en/) 1.9 or higher
-  * [Node.js](http://nodejs.org)
-  * Grunt `npm install -g bower grunt-cli`
-  * Bower `npm install -g bower`
-  * Compass `[sudo] gem install compass`
-  * Boostrap Sass `gem install bootstrap-sass`
+* Dentro de um terminal, acesse a pasta *static* criada:
+```
+cd static
+```
 
-  Well done, now you have all the requirements to get this project working!
+* Mude para a branch beta que contém as últimas atualizações:
+```
+git checkout beta
+```
 
+* Faça um build do projeto:
+```
+grunt
+```
 
-## Downloading
+* Inicie o servidor http embarcado com o seguinte comando:
+```
+node backend/static.js
+```
 
-  Just download and unzip or clone the project inside the folder you want
-  * [Download](https://github.com/ivanhtp/kickstart_bootstrap/archive/master.zip) or clone:
-  `git clone https://github.com/ivanhtp/kickstart_bootstrap.git`
+*  Em seu navegador favorito, acesse um dos [Mocks](https://bitbucket.org/directtalk/static/wiki/Mocks)
 
-  * Optional: Install or update all Grunt dependencies running:
-  `npm install`
+## Static + IIS 6
+O Static suporta integração com o servidores http utilizando técnica de [proxy reverso](http://pt.wikipedia.org/wiki/Proxy_reverso). Essa integração é especialmente útil quando você precisar testar o Static com dados reais vindos de um servidor web IIS e dados falsos (mocks) servidos pelo Static.
 
-  * Or just open your folder and run:
-   `grunt dev`  - Use it when developing, takes less time to run and don't compress your files. Good for debug. It also start a local server.
-   `grunt dist`  - Use it when deploying, compress all files, images to sprites and create version tags of your project
+Para configurar a integração:
 
+* Modifique o arquivo de hosts local de sua máquina, adicionando a seguinte linha (substituindo pelo ip correto do servidor de aplicação).
 
-## Folder Structure
+```
+192.168.0.x		vmapp.directtalk.com.br
+```
 
-  This project is organized following the structure below:
+* Caso a vm de aplicação (vmapp) tenha um nome diferente de _vmapp.directtalk.com.br_, modifique também a propriedade __httpServer__ do arquivo __package.json__ localizado na raíz do projeto. 
 
-  * __node_modules__     - All plugins used by grunt and modules from Node: clean, uglify, compass, etc...
-  * __scss__             - The global style of application goes here, basically your bootstrap overrides.
-  * __img__              - Put your images here, they will be joined into a sprite in development/img.
-  * __development__      - Your HTML files and javascripts only. Grunt will bring images and css for you, don't worry.
-  * __build__            - Here goes your project ready for run. Deploy? Just copy this folder and be happy. DON'T CODE ANYTHING HERE!!!
+* Inicie o servidor com proxy ativo:
 
+```
+node backend/proxy.js
+```
 
+* Adicione a seguinte entrada na seção  __Hostheaders__ do arquivo __dsn.xml__ da vm de aplicação (vmapp)
 
-## Configuration Files!
+```
+<Header>vmapp.directtalk.com.br:80</Header>
+```
 
-  * __package.json__ - Project version information for building. Project name, author, version goes here.
-  * __Gruntfile.js__ - This file is to Grunt, what bower.json is to bower. Here goes Grunt dependencies/plugins and its configurations. Like bower, if you add a new dependency, run `npm install` to download the new dependencies
+* Acesse em seu navegador uma página publicada no servidor IIS:
+[http://localhost:8000/admin](http://localhost:8000/admin)
+
+## Deploy via FTP
+O Static suporta deploy via FTP utilizando o gerenciador de build [Grunt](http://gruntjs.com/).
+Para configurar o deploy via FTP:
+
+* Defina a propriedade __httpServer.host__ apontando para o ip do servidor HTTP no arquivo __package.json__ que está localizado na raiz do projeto.
+* Adicione as credenciais de acesso ao arquivo __.ftppass__ que está localizado na raiz do projeto.
+* Depois de realizar as mudanças, em um terminal execute o Grunt na raiz do projeto para fazer o build do projeto, comprimir os arquivos js, html e css, e criar  o diretório de distribuição:
+
+```
+grunt
+```
+
+* Execute o comando de deploy ftp:
+
+```
+grunt ftp-deploy
+```
+
+* FTP-Deploy para as máquinas na AWS: 
+
+Target está definido em package.json e as Keys em .ftppass
+
+```
+grunt ftp-deploy --target=maquina --key=key
+```
+
 

@@ -1,0 +1,70 @@
+<!doctype html>
+<html class="no-js" lang="en"  >
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Life</title>
+
+    <!-- Stylesheet (all in one) -->
+    <link rel="stylesheet" href="css/app.css" />
+
+    <!-- AngularJS Framework (must stay on top) -->
+    <script src="lib/angularjs/angular.min.js"></script>
+
+</head>
+
+<body ng-app="LifeModule">
+
+    <!-- NAVBAR TOP -->
+    <nav class="navbar navbar-inverse" role="navigation">
+        <div class="container-fluid">
+            <!-- Small Screen Menu -->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Life</a>
+            </div>
+
+        </div><!-- /.container-fluid -->
+    </nav>
+
+    <!-- CONTENT -->
+    <div class="container">
+
+    </div>
+
+    <!-- ADD EVENT MODAL -->
+    <div id="addEvent" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Add Event</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Which event would you like to add&hellip;</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+<!-- Polyfills -->
+<!--[if lte IE 9]>
+    <script src="lib/polyfills/json3.min.js"></script>
+    <script src="lib/polyfills/history.min.js"></script>
+    <script src="lib/polyfills/respond.min.js"></script>
+    <script src="lib/polyfills/base64.min.js"></script>
+<![endif]-->
+
+<!-- Frameworks -->
+<script src="lib/jquery.min.js"></script>
+<script src="lib/modernizr.min.js"></script>
+<script src="lib/bootstrap/bootstrap.min.js"></script>
+
+<!-- Javascripts -->
+<script src="js/app.min.js"></script><!--       For production !  -->
+<!--<script src="js/app.js"></script>   For development! -->
+</body>
+</html>
