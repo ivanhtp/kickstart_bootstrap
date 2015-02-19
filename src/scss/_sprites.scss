@@ -1,0 +1,8 @@
+// Geracao de sprites
+@import "doc/*.png";
+
+$doc-layout: smart;
+$doc-sprite-dimensions: true;
+@include all-doc-sprites;
+
+

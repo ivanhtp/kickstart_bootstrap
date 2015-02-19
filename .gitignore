@@ -1,0 +1,5 @@
+ignore/
+build/
+frontend/img/
+.idea/
+.sass-cache/

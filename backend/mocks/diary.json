@@ -1,0 +1,96 @@
+{
+    "id": 1,
+    "cat_icon": "music",
+    "cat_name": "Music",
+    "title": "Listened to Oasis",
+    "desc": "via PandoraApp",
+    "date": "12-04-2014"
+},
+{
+    "id": 2,
+    "cat_icon": "cutlery",
+    "cat_name": "Weight",
+    "title": "Lost 3 Kg",
+    "desc": "current weight 88Kg",
+    "date": "12-04-2014"
+},
+{
+    "id": 3,
+    "cat_icon": "usd",
+    "cat_name": "Finance",
+    "title": "Income $2000",
+    "desc": "Salary received",
+    "date": "13-04-2014"
+},
+{
+    "id": 4,
+    "cat_icon": "film",
+    "cat_name": "Movie",
+    "title": "Watched 'The Hobbit'",
+    "desc": "Imax New York",
+    "date": "13-04-2014"
+},
+{
+    "id": 5,
+    "cat_icon": "cutlery",
+    "cat_name": "Weight",
+    "title": "Lost 1 Kg",
+    "desc": "current weight 87Kg",
+    "date": "14-04-2014"
+},
+{
+    "id": 6,
+    "cat_icon": "book",
+    "cat_name": "Book",
+    "title": "Read 'Game of Thones'",
+    "desc": "by George R.R. Martin",
+    "date": "15-04-2014"
+},
+{
+    "id": 7,
+    "cat_icon": "usd",
+    "cat_name": "Finance",
+    "title": "Bill paid $30",
+    "desc": "Internet and cable tax",
+    "date": "16-04-2014"
+},
+{
+    "id": 8,
+    "cat_icon": "cutlery",
+    "cat_name": "Weight",
+    "title": "Gained 1Kg",
+    "desc": "current weight 88Kg",
+    "date": "17-04-2014"
+},
+{
+    "id": 9,
+    "cat_icon": "book",
+    "cat_name": "Book",
+    "title": "Read 'Moby Dick'",
+    "desc": "by Herman Mellvile",
+    "date": "17-04-2014"
+},
+{
+    "id": 10,
+    "cat_icon": "film",
+    "cat_name": "Movie",
+    "title": "Read 'Moby Dick'",
+    "desc": "by Herman Mellvile",
+    "date": "17-04-2014"
+},
+{
+    "id": 11,
+    "cat_icon": "book",
+    "cat_name": "Book",
+    "title": "Read '50 Shades of Gray'",
+    "desc": "by Joanne Doe",
+    "date": "17-04-2014"
+},
+{
+    "id": 12,
+    "cat_icon": "usd",
+    "cat_name": "Finance",
+    "title": "Paid Mortgage",
+    "desc": "One st. - National Park NY",
+    "date": "17-04-2014"
+}
