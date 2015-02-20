@@ -3,3 +3,4 @@ build/
 frontend/img/
 .idea/
 .sass-cache/
+node_modules/
